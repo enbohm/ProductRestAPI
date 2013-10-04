@@ -7,6 +7,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 
 import com.test.entity.Attribute;
+import com.test.entity.Campaign;
 import com.test.entity.TvChannel;
 
 @Stateless
@@ -25,6 +26,6 @@ public class ProductService {
 
 	private TvChannel createTvChannel(String id) {
 		return new TvChannel(id, Arrays.asList(new Attribute("HD", "true"),
-				new Attribute("recordable", "false")));
+				new Attribute("24/7", "false")), new Campaign("0 kr", "Free first year"));
 	}
 }

@@ -11,12 +11,13 @@ import com.test.entity.api.Discountable;
 import com.test.entity.api.Product;
 
 @XmlRootElement
-@XmlType(propOrder = { "id", "discount", "attributes"})
+@XmlType(propOrder = { "id", "discount", "attributes", "campaing" })
 public class TvChannel implements Discountable, Product {
 
 	private String id;
 	private List<Attribute> attributes = new ArrayList<Attribute>();
 	private Integer discount = Integer.valueOf(42);
+	private Campaign campaing;
 
 	public TvChannel() {
 	}
@@ -25,9 +26,10 @@ public class TvChannel implements Discountable, Product {
 		this.id = id;
 	}
 
-	public TvChannel(String id, List<Attribute> attributes) {
+	public TvChannel(String id, List<Attribute> attributes, Campaign campaing) {
 		this.id = id;
 		this.attributes = attributes;
+		this.campaing = campaing;
 	}
 
 	public String getId() {
@@ -46,5 +48,13 @@ public class TvChannel implements Discountable, Product {
 	@XmlElement(name = "attributes")
 	public List<Attribute> getAttributes() {
 		return this.attributes;
+	}
+
+	public Campaign getCampaing() {
+		return campaing;
+	}
+
+	public void setCampaing(Campaign campaing) {
+		this.campaing = campaing;
 	}
 }
